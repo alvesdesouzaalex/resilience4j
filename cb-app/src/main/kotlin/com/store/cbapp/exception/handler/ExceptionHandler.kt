@@ -24,4 +24,10 @@ class ExceptionHandler {
         return ErrorResponse.builder(e, HttpStatus.GATEWAY_TIMEOUT, "Products MS Api with unexpected timeout").build()
     }
 
+    @ExceptionHandler(FeignException.NotFound::class)
+    fun notFoundException(e: Throwable): ErrorResponse {
+        logger.error(e) { "Gateway timeout exception" }
+        return ErrorResponse.builder(e, HttpStatus.NOT_FOUND, "NOT FOUND").build()
+    }
+
 }

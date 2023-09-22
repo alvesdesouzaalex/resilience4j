@@ -11,12 +11,7 @@ resilience4j:
         failure-rate-threshold: 50
         automatic-transition-from-open-to-half-open-enabled: true
         ignore-exceptions:
-          - feign.FeignException.NotFound
-        record-failure-predicate:
-          - java.util.concurrent.TimeoutException
-          - com.store.cbapp.exception.ServiceUnavailableException
-          - feign.FeignException.ServiceUnavailable
-          - io.github.resilience4j.circuitbreaker.CallNotPermittedException
+          - feign.FeignException.Forbidden
         record-exceptions:
           - java.util.concurrent.TimeoutException
           - com.store.cbapp.exception.ServiceUnavailableException

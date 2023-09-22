@@ -19,7 +19,7 @@ class ProductService(
     companion object : KLogging()
 
     @CircuitBreaker(name = "default", fallbackMethod = "getProductFallback")
-    fun getProducts() = productClient.getProducts()
+    fun getProducts(name: String) = productClient.getProducts(name)
 
 
     fun getProductFallback(ex: ServiceUnavailable): List<Product> {
